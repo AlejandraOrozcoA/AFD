@@ -15,10 +15,10 @@ import java.util.ArrayList;
  * @author Ale
  */
 public class TablaTrans {
-    
-    ArrayList <String> estados = new ArrayList <String> ();
-    ArrayList alfabeto = new ArrayList ();
     String dir;
+    ArrayList <String> estados = new ArrayList <String> ();
+    ArrayList <String> alfabeto  = new ArrayList <String> ();
+    ArrayList trans = new ArrayList ();
     String edoAcep; 
     FileReader fr;
 
@@ -26,31 +26,8 @@ public class TablaTrans {
         this.dir = direccion;
         leerDoc(dir);
     }
-
-    public String getDir() {
-        return dir;
-    }
-
-    public void setDir(String dir) {
-        this.dir = dir;
-    }
-
-    public ArrayList<String> getEstados() {
-        return estados;
-    }
-
-    public void setEstados(ArrayList<String> estados) {
-        this.estados = estados;
-    }
-
-    public ArrayList getAlfabeto() {
-        return alfabeto;
-    }
-
-    public void setAlfabeto(ArrayList alfabeto) {
-        this.alfabeto = alfabeto;
-    }
-
+    
+    //Lee el archivo
     private void leerDoc(String dir){
         try {
             File archivo = new File(dir);
@@ -58,10 +35,25 @@ public class TablaTrans {
             BufferedReader br = new BufferedReader (fr);
             
             String linea;
+            int aux = 0;
             while((linea = br.readLine()) != null){
-                System.out.println(linea);
+                if (aux == 0) {
+                    String ar []= linea.split(",");
+                    for (int i = 2; i < ar.length ; i++) {
+                        alfabeto.add(ar[i]); 
+                    }
+                }
+                else if(aux > 0){
+                    String ar []= linea.split(",");
+                    estados.add(ar[1]);
+                    System.out.println(ar[0]);
+                    if(ar[0].equals("*")){
+                        edoAcep = ar[1];
+                    }
+                }
+                
+                ++aux;
             }
-            
         }
         catch (Exception e) {
             System.out.println("No se puedo leer el archivo");
@@ -75,8 +67,5 @@ public class TablaTrans {
                 e.printStackTrace();
             }
         }
-    }
-    
-    
-    
+    }    
 }
