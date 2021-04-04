@@ -6,15 +6,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class TablaTrans {
-    String dir;
-    ArrayList <String> estados = new ArrayList <String> ();
-    ArrayList <String> alfabeto  = new ArrayList <String> ();
-    ArrayList <ArrayList> trans = new ArrayList <ArrayList> ();
-    String edoAcep; 
-    FileReader fr;
+public class LecturaTabla {
+    private String dir;
+    private ArrayList <String> estados = new ArrayList <String> ();
+    private ArrayList <String> alfabeto  = new ArrayList <String> ();
+    private ArrayList <ArrayList> trans = new ArrayList <ArrayList> ();
+    private String edoAcep; 
+    private String edoIni;
+    private FileReader fr;
 
-    public TablaTrans(String direccion) {
+    public LecturaTabla(String direccion) {
         this.dir = direccion;
         leerDoc(dir);
     }
@@ -42,6 +43,10 @@ public class TablaTrans {
                 else if(aux > 0){
                     String ar []= linea.split(",");
                     estados.add(ar[1]);
+                    //Guarda el estado inicial
+                    if(ar[0].equals("-")){
+                        edoIni = ar[1];
+                    }
                     //Guarda el estado de aceptacion
                     if(ar[0].equals("*")){
                         edoAcep = ar[1];
@@ -81,4 +86,5 @@ public class TablaTrans {
             }
         }
     }
+    
 }
