@@ -4,6 +4,7 @@ package afd;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LecturaTabla {
@@ -14,10 +15,30 @@ public class LecturaTabla {
     private String edoAcep; 
     private String edoIni;
     private FileReader fr;
-
+    
     public LecturaTabla(String direccion) {
         this.dir = direccion;
         leerDoc(dir);
+    }
+
+    public ArrayList<String> getEstados() {
+        return estados;
+    }
+
+    public ArrayList<String> getAlfabeto() {
+        return alfabeto;
+    }
+
+    public ArrayList<ArrayList> getTrans() {
+        return trans;
+    }
+
+    public String getEdoAcep() {
+        return edoAcep;
+    }
+
+    public String getEdoIni() {
+        return edoIni;
     }
     
     //Lee el archivo
@@ -64,7 +85,7 @@ public class LecturaTabla {
             }
             imprimirTrans();
         }
-        catch (Exception e) {
+        catch (IOException e) {
             System.out.println("No se puedo leer el archivo");
         }
         finally{
@@ -72,7 +93,7 @@ public class LecturaTabla {
                 if(null != fr ){
                     fr.close();
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("Error al cerrar el archivo");
             }
         }
@@ -81,7 +102,7 @@ public class LecturaTabla {
     private void imprimirTrans() {
         for (int i = 0; i < estados.size() ; i++) {
             System.out.println("Estado: "+ estados.get(i));
-            for (int j = 0; j < trans.size() ; j++) {
+            for (int j = 0; j < trans.get(i).size() ; j++) {
                 System.out.println("Si: "+alfabeto.get(j)+" pasa a: "+ trans.get(i).get(j));
             }
         }
