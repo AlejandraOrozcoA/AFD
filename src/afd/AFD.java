@@ -15,7 +15,7 @@ public class AFD {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        TablaTrans tbl = new TablaTrans("src\\afd\\resources\\Pruebas.txt");
     }
     
 }
