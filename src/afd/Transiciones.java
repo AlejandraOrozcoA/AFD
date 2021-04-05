@@ -13,7 +13,7 @@ public class Transiciones {
     private ArrayList <String> estados = new ArrayList <String> ();
     private ArrayList <String> alfabeto  = new ArrayList <String> ();
     private ArrayList <ArrayList> trans = new ArrayList <ArrayList> ();
-    private String edoAcep; 
+    private ArrayList <String> edoAcep = new ArrayList <String> (); 
     private String edoIni;
     private String cadena;
     private LecturaTabla tbl;
@@ -41,7 +41,7 @@ public class Transiciones {
             }
         }
         //Indica si la cadena es aceptada o rechazada 
-        if (estadoAct.equals(edoAcep)) {
+        if (edoAcep.contains(estadoAct)) {
             System.out.println("La cadena es aceptada");
         }else{
             System.out.println("La cadena no es aceptada");
