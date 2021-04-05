@@ -1,3 +1,8 @@
+// Instituto Politécnico Nacional - ESCOM 
+// Alejandra Orozco Aguilar 
+// Teoría Computacional  Grupo: 2CV12
+// Prof. Luna Benoso Benjamin
+// Ciclo escolar 21/2
 
 package afd;
 

@@ -1,3 +1,8 @@
+// Instituto Politécnico Nacional - ESCOM 
+// Alejandra Orozco Aguilar 
+// Teoría Computacional  Grupo: 2CV12
+// Prof. Luna Benoso Benjamin
+// Ciclo escolar 21/2
 
 package afd;
 
@@ -78,7 +83,6 @@ public class LecturaTabla {
                         
                     }
                     trans.add(tr);
-                    //tr.clear();
                 }
                 
                 ++aux;
@@ -97,7 +101,7 @@ public class LecturaTabla {
             }
         }
     }
-
+    //Imprime el Lenguaje del automata 
     public void imprimirLenguaje(){
         System.out.print("El Lenguaje de este automata es: ");
         for (int i = 0; i < alfabeto.size(); i++) {
