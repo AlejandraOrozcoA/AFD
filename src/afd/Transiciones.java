@@ -20,11 +20,25 @@ public class Transiciones {
         this.edoAcep = tbl.getEdoAcep();
         this.edoIni = tbl.getEdoIni();
         this.cadena = cadena;
-        //probarCadena();
+        probarCadena(cadena);
     } 
 
-    private void probarCadena() {
-        String estadoAct = edoIni;
-        
+    private void probarCadena(String cadena) {
+        String estadoAct = edoIni;  
+        for (int i = 0; i < cadena.length() ; i++) {
+            for (int j = 0; j < trans.get(estados.indexOf(estadoAct)).size() ; j++) {
+               
+                if (String.valueOf(cadena.charAt(i)).equals(alfabeto.get(j))) {
+                    estadoAct = trans.get(estados.indexOf(estadoAct)).get(alfabeto.indexOf(alfabeto.get(j))).toString();
+                    System.out.println(estadoAct);
+                }
+            }
+        }
+        if (estadoAct.equals(edoAcep)) {
+            System.out.println("La cadena es aceptada");
+        }else{
+            System.out.println("La cadena no es aceptada");
+        }
+
     }
 }

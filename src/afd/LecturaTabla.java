@@ -83,7 +83,6 @@ public class LecturaTabla {
                 
                 ++aux;
             }
-            imprimirTrans();
         }
         catch (IOException e) {
             System.out.println("No se puedo leer el archivo");
@@ -98,14 +97,4 @@ public class LecturaTabla {
             }
         }
     }    
-
-    private void imprimirTrans() {
-        for (int i = 0; i < estados.size() ; i++) {
-            System.out.println("Estado: "+ estados.get(i));
-            for (int j = 0; j < trans.get(i).size() ; j++) {
-                System.out.println("Si: "+alfabeto.get(j)+" pasa a: "+ trans.get(i).get(j));
-            }
-        }
-    }
-    
 }
