@@ -17,7 +17,7 @@ public class LecturaTabla {
     private ArrayList <String> estados = new ArrayList <String> ();
     private ArrayList <String> alfabeto  = new ArrayList <String> ();
     private ArrayList <ArrayList> trans = new ArrayList <ArrayList> ();
-    private String edoAcep; 
+    private ArrayList <String> edoAcep = new ArrayList <String> (); 
     private String edoIni;
     private FileReader fr;
     
@@ -38,7 +38,7 @@ public class LecturaTabla {
         return trans;
     }
 
-    public String getEdoAcep() {
+    public ArrayList<String> getEdoAcep() {
         return edoAcep;
     }
 
@@ -75,7 +75,7 @@ public class LecturaTabla {
                     }
                     //Guarda el estado de aceptacion
                     if(ar[0].equals("*") || ar[0].equals("*-")){
-                        edoAcep = ar[1];
+                        edoAcep.add(ar[1]);
                     }
                     //Identifica las tansiciones de cada estado
                     for (int i = 2; i < ar.length ; i++) {
