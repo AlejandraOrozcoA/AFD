@@ -30,7 +30,6 @@ public class Transiciones {
                
                 if (String.valueOf(cadena.charAt(i)).equals(alfabeto.get(j))) {
                     estadoAct = trans.get(estados.indexOf(estadoAct)).get(alfabeto.indexOf(alfabeto.get(j))).toString();
-                    System.out.println(estadoAct);
                 }
             }
         }
@@ -40,5 +39,12 @@ public class Transiciones {
             System.out.println("La cadena no es aceptada");
         }
 
+    }
+    
+    public void imprimirLenguaje(){
+        System.out.print("El Lenguaje de este automata es: ");
+        for (int i = 0; i < alfabeto.size(); i++) {
+            System.out.print(alfabeto.get(i)+ ",");
+        }
     }
 }
