@@ -96,5 +96,13 @@ public class LecturaTabla {
                 System.out.println("Error al cerrar el archivo");
             }
         }
+    }
+
+    public void imprimirLenguaje(){
+        System.out.print("El Lenguaje de este automata es: ");
+        for (int i = 0; i < alfabeto.size(); i++) {
+            System.out.print(alfabeto.get(i)+ ",");
+        }
+        System.out.println(" ");
     }    
 }

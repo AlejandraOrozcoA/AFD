@@ -11,9 +11,10 @@ public class Transiciones {
     private String edoAcep; 
     private String edoIni;
     private String cadena;
+    private LecturaTabla tbl;
 
-    public Transiciones(String dir, String cadena) {
-        LecturaTabla tbl = new LecturaTabla("src\\afd\\resources\\Pruebas.txt");
+    public Transiciones(LecturaTabla tbl, String cadena) {
+        this.tbl = tbl;
         this.estados = tbl.getEstados();
         this.alfabeto = tbl.getAlfabeto();
         this.trans = tbl.getTrans();
@@ -41,10 +42,4 @@ public class Transiciones {
 
     }
     
-    public void imprimirLenguaje(){
-        System.out.print("El Lenguaje de este automata es: ");
-        for (int i = 0; i < alfabeto.size(); i++) {
-            System.out.print(alfabeto.get(i)+ ",");
-        }
-    }
 }
