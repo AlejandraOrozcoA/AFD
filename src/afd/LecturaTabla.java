@@ -70,11 +70,11 @@ public class LecturaTabla {
                     String ar []= linea.split(",");
                     estados.add(ar[1]);
                     //Guarda el estado inicial
-                    if(ar[0].equals("-")){
+                    if(ar[0].equals("-") || ar[0].equals("*-") ){
                         edoIni = ar[1];
                     }
                     //Guarda el estado de aceptacion
-                    if(ar[0].equals("*")){
+                    if(ar[0].equals("*") || ar[0].equals("*-")){
                         edoAcep = ar[1];
                     }
                     //Identifica las tansiciones de cada estado
